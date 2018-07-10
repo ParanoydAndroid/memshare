@@ -13,10 +13,11 @@ int main(){
 
     const int SIZE = 4096;
     void* ptr;
+    FILE* out;
 
     ptr = mmap( NULL, SIZE, PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_SHARED, -1, 0 );
 
-    if( ptr == MAP_FAILED){
+    if( ptr == MAP_FAILED ){
 
         printf( "Map Failed: %s", strerror(errno) );
 
@@ -52,17 +53,15 @@ int main(){
             ptr = mmap( NULL, SIZE, PROT_WRITE, MAP_SHARED, sh_fd, 0 );
             */
 
-
-            //TODO: implement buffer pointer
             sprintf( (char*) ptr, "%s", "I am awesome" );
             break;
 
         default:
 
+            out = fopen( "memshare.txt", "w");
             wait( &pid_a );
 
-            //TODO: Change to a file write, later and implement a buffer counter
-            printf( "test: %s\n", (char*) ptr );
+            fprintf( out, "My child has informed me: %s\n", (char*) ptr );
 
             int rtn = munmap( ptr, SIZE);
 
@@ -71,7 +70,6 @@ int main(){
                 printf( "Error unmapping memory: %s", strerror(errno) );
 
             }
-
 
             break;
     }
