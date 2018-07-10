@@ -12,7 +12,7 @@ int main(){
     //the parent should then print the message.
 
     const int SIZE = 4096;
-    void* ptr;
+    void* ptr = 0;
     FILE* out;
 
     ptr = mmap( NULL, SIZE, PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_SHARED, -1, 0 );
@@ -72,7 +72,9 @@ int main(){
             }
 
             break;
+
     }
 
     return 0;
+
 }
