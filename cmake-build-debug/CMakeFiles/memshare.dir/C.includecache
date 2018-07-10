@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/Bkama/CLionProjects/memshare/main.c
+stdio.h
+-
+unistd.h
+-
+sys/mman.h
+-
+fcntl.h
+-
+sys/wait.h
+-
+
