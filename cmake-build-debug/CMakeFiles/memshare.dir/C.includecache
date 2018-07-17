@@ -13,12 +13,8 @@ unistd.h
 -
 sys/mman.h
 -
-fcntl.h
--
 sys/wait.h
 -
-sys/errno.h
--
-string.h
+stdlib.h
 -
 
